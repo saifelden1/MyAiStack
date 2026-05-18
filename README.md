@@ -6,10 +6,11 @@
 
 **One onboarding file. Any model. Same outcome.**
 
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://opensource.org/licenses/unlicense)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![AI-Agnostic](https://img.shields.io/badge/AI-Agnostic-✓-brightgreen.svg)]()
-[![Markdown](https://img.shields.io/badge/format-Markdown-083fa8.svg)]()
-[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)]()
+[![Claude](https://img.shields.io/badge/Claude-Compatible-✓-7C3AED.svg)](https://www.anthropic.com/claude)
+[![GitHub Codex](https://img.shields.io/badge/Codex-Compatible-✓-24292e.svg)](https://github.com/features/copilot)
+[![Gemini](https://img.shields.io/badge/Gemini-Compatible-✓-4285F4.svg)](https://deepmind.google/technologies/gemini/)
 
 ---
 
@@ -437,8 +438,10 @@ Behavioral constraints and guidelines...
 
 ## 🤝 Contributing & License
 
-This framework is provided as-is for use in any project.  
-No restrictions on adoption, modification, or distribution.
+This project is licensed under the **MIT License** — free to use, modify, and distribute.
+See [LICENSE](../LICENSE) for full details.
+
+Contributions welcome! Fork, branch, and PR.
 
 ---
 

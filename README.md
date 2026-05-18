@@ -7,10 +7,6 @@
 **One onboarding file. Any model. Same outcome.**
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![AI-Agnostic](https://img.shields.io/badge/AI-Agnostic-✓-brightgreen.svg)]()
-[![Claude](https://img.shields.io/badge/Claude-Compatible-✓-7C3AED.svg)](https://www.anthropic.com/claude)
-[![GitHub Codex](https://img.shields.io/badge/Codex-Compatible-✓-24292e.svg)](https://github.com/features/copilot)
-[![Gemini](https://img.shields.io/badge/Gemini-Compatible-✓-4285F4.svg)](https://deepmind.google/technologies/gemini/)
 
 ---
 

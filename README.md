@@ -1,176 +1,449 @@
-# AiStack — Model-Agnostic AI Engineering Framework
+<div align="center">
 
-> **One onboarding file. Any model. Same outcome.**
+# 🧠 AiStack
 
-AiStack is a portable, model-agnostic configuration framework that ensures **every AI coding assistant** — regardless of vendor, architecture, or training data — arrives at the **same understanding, same behavior, and same project context** after reading a single onboarding file.
+### Model-Agnostic AI Engineering Framework
 
----
+**One onboarding file. Any model. Same outcome.**
 
-## Why AiStack?
-
-| Problem | AiStack's Answer |
-|---|---|
-| Different AI models produce inconsistent results on the same project | A single onboarding protocol forces all models to sync to the same state before writing code |
-| Project context is scattered across `.cursorrules`, `CLAUDE.md`, `.github/copilot-instructions.md` | One source of truth (`.ai/`) propagates to every native config automatically |
-| Switching AI tools means re-teaching the project from scratch | Read the onboarding file once — any model is instantly up to speed |
-| AI assistants make assumptions and hide confusion | Karpathy-style "Think Out Loud" rule mandates visible chain-of-thought before execution |
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](https://opensource.org/licenses/unlicense)
+[![AI-Agnostic](https://img.shields.io/badge/AI-Agnostic-✓-brightgreen.svg)]()
+[![Markdown](https://img.shields.io/badge/format-Markdown-083fa8.svg)]()
+[![Version](https://img.shields.io/badge/version-1.0.0-orange.svg)]()
 
 ---
 
-## How It Works
+> *"After reading the onboarding file, any AI model — Claude, GPT, Gemini, Llama, Mistral, or any future model — will converge to the same project understanding and follow the same behavioral rules."*
 
-The framework is built on **three pillars**:
+[🚀 Quick Start](#-quick-start) · [📖 How It Works](#-how-it-works) · [🧩 Core Principles](#-core-principles) · [📁 Directory Structure](#-directory-structure) · [🔄 The Convergence Guarantee](#-the-convergence-guarantee)
 
-### 1. Onboarding Protocol (`onboarding.md`)
-
-The entry point. When any AI agent starts a session, it reads [`onboarding.md`](onboarding.md) and follows a strict initialization sequence:
-
-1. **Identity & Reasoning** — Load the Engineer skill, enable visible chain-of-thought
-2. **State Synchronization** — Index project specs (requirements, design, tasks)
-3. **Native Config Generation** — Create or update the environment-specific config file (`CLAUDE.md`, `.cursorrules`, `.github/copilot-instructions.md`, etc.)
-4. **Sync Report** — Report current task, methodology, and sub-task breakdown before any code is written
-5. **Environment Detection** — Identify which IDE/CLI is running and target the correct native file
-6. **Data Propagation** — Any new spec or rule created during a session is automatically synced to the native config
-
-**Result:** Whether you're using Claude Code, Cursor, GitHub Copilot, or any future AI tool — after onboarding, they all share the same project knowledge and behavioral constraints.
-
-### 2. Structured Specs (`.ai/specs/`)
-
-| File | Purpose |
-|---|---|
-| [`requirements.md`](specs/requiremnts.md) | Project scope and constraints |
-| [`design.md`](specs/design.md) | Architecture decisions |
-| [`tasks.md`](specs/tasks.md) | Current progress and next action |
-
-These three files are the **single source of truth**. Every AI agent must read them before implementation and update them as work progresses.
-
-### 3. Steering & Skills (`.ai/steering/`, `.ai/skills/`)
-
-- **Steering files** define behavioral guardrails (simplicity first, surgical changes, no speculative abstractions)
-- **Skills** define domain-specific execution patterns (engineering workflow, testing, security, etc.)
-
-Both are loaded automatically during onboarding and enforce consistent behavior across all models.
+</div>
 
 ---
 
-## Quick Start
+## 🎯 Why AiStack?
+
+Every AI coding assistant has its own config format, its own assumptions, its own way of interpreting instructions. This creates **chaos** when you switch tools or work across teams.
+
+AiStack eliminates that chaos with a **single protocol** that every model follows.
+
+<table>
+<tr>
+<td width="50%" align="center"><h3>❌ Without AiStack</h3></td>
+<td width="50%" align="center"><h3>✅ With AiStack</h3></td>
+</tr>
+<tr>
+<td>
+
+```
+Claude → reads CLAUDE.md
+Cursor → reads .cursorrules
+Copilot → reads copilot-instructions.md
+Result → 3 different interpretations
+```
+
+</td>
+<td>
+
+```
+Any Model → reads onboarding.md
+           → syncs to .ai/specs/
+           → generates native config
+Result → 1 unified understanding
+```
+
+</td>
+</tr>
+<tr>
+<td align="center">🤯 Fragmented context, inconsistent behavior</td>
+<td align="center">🎯 Unified context, consistent behavior</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
 
 ### For a New Project
 
-1. Copy the `.ai/` directory into your project root
-2. Fill in [`specs/requirements.md`](specs/requiremnts.md), [`specs/design.md`](specs/design.md), and [`specs/tasks.md`](specs/tasks.md) with your project details
-3. Open your preferred AI tool and point it to the project
-4. The AI reads [`onboarding.md`](onboarding.md) and self-initializes — no manual setup needed
+```bash
+# 1. Copy the .ai/ directory into your project root
+cp -r .ai/ /your-project/
+
+# 2. Fill in the spec files with your project details
+#    .ai/specs/requirements.md  → Scope & constraints
+#    .ai/specs/design.md        → Architecture decisions
+#    .ai/specs/tasks.md         → Current progress & next action
+
+# 3. Open your preferred AI tool — it self-initializes
+#    No manual setup needed!
+```
 
 ### For an Existing Project
 
-1. Add the `.ai/` directory to your existing repo
-2. Document your current state in the spec files
-3. Any AI session from any tool now starts with full context awareness
+```bash
+# 1. Add .ai/ to your existing repo
+git add .ai/
 
-### Switching AI Tools
+# 2. Document your current state in the spec files
 
-No re-configuration needed. The onboarding protocol detects your environment and generates the appropriate native config:
+# 3. Any AI session from any tool now starts with full context
+```
 
-| Environment | Native Config Target |
-|---|---|
-| Claude Code CLI | `CLAUDE.md` |
-| Cursor IDE | `.cursorrules` |
-| GitHub Copilot | `.github/copilot-instructions.md` |
-| Generic / Web | `.ai/SESSION_LOG.md` |
+### Switching AI Tools — Zero Re-Configuration
 
-Switch from Claude to Cursor? Just open Cursor — it reads the same `.ai/` and generates its own native file. Same knowledge. Same behavior.
+| Environment | Native Config Target | Auto-Generated? |
+|:---|:---|:---:|
+| 🟠 Claude Code CLI | `CLAUDE.md` | ✅ |
+| 🔵 Cursor IDE | `.cursorrules` | ✅ |
+| 🟣 GitHub Copilot | `.github/copilot-instructions.md` | ✅ |
+| ⚪ Generic / Web | `.ai/SESSION_LOG.md` | ✅ |
+
+> Switch from Claude to Cursor? Just open Cursor — it reads the same `.ai/` and generates its own native file. **Same knowledge. Same behavior. Zero friction.**
 
 ---
 
-## Core Principles
+## 📖 How It Works
 
-### Model-Agnostic by Design
+The framework is built on **three pillars** that work together to guarantee model convergence:
+
+### Pillar 1️⃣ — Onboarding Protocol
+
+The entry point. When any AI agent starts a session, it reads [`onboarding.md`](onboarding.md) and follows a **strict initialization sequence**:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                  ONBOARDING PROTOCOL                     │
+│                                                         │
+│  Step 1 ──▶ Load Identity (Engineer Skill)              │
+│  Step 2 ──▶ Enable Visible Chain-of-Thought             │
+│  Step 3 ──▶ Index Project Specs (reqs, design, tasks)   │
+│  Step 4 ──▶ Detect Environment (Claude? Cursor? Copilot?)│
+│  Step 5 ──▶ Generate/Sync Native Config File            │
+│  Step 6 ──▶ Report Status, Methodology & Sub-tasks      │
+│  Step 7 ──▶ Propagate New Data to Native Config         │
+│                                                         │
+│  ✅ Ready to implement — with full project context       │
+└─────────────────────────────────────────────────────────┘
+```
+
+<details>
+<summary>📋 View the full onboarding sequence</summary>
+
+```markdown
+## 1. IDENTITY & REASONING ENGINE
+- Primary Skill: Load .ai/skills/Engineer.md
+- Think Out Loud: Visible Chain-of-Thought required before execution
+
+## 2. STATE SYNCHRONIZATION
+- Index Project: Read .ai/specs/requirements.md, design.md, and tasks.md
+- Locate Pointer: Identify the active task in tasks.md
+
+## 3. NATIVE CONFIGURATION
+- Generate/Update native intelligence file (CLAUDE.md, .cursorrules, etc.)
+- Instruction: "Always perform visible step-by-step breakdown before implementation"
+
+## 4. INITIAL SYNC REPORT
+- Status: Which task are we starting?
+- Methodology: "Thinking Out Loud" analysis
+- Sub-tasks: Breakdown of mini-steps
+
+## 5. ENVIRONMENT DETECTION
+- Claude Code CLI → Target CLAUDE.md
+- Cursor IDE → Target .cursorrules
+- GitHub Copilot → Target .github/copilot-instructions.md
+- Generic/Web → Target .ai/SESSION_LOG.md
+
+## 6. THE SYNC COMMAND
+- Load Identity → Read .ai/skills/Engineer.md
+- Scan State → Read all files in .ai/specs/
+- Generate/Sync → Update native config if missing or outdated
+
+## 7. DATA PROPAGATION
+- New specs or rules → Must propagate to native config
+- Future sessions are "born" with that knowledge
+```
+
+</details>
+
+### Pillar 2️⃣ — Structured Specs
+
+Three files form the **single source of truth** for every project:
+
+| File | Purpose | Analogy |
+|:---|:---|:---|
+| [`requirements.md`](specs/requiremnts.md) | Scope & constraints | 🎯 **"What we're building"** |
+| [`design.md`](specs/design.md) | Architecture decisions | 🏗️ **"How we're building it"** |
+| [`tasks.md`](specs/tasks.md) | Current progress & next action | 📋 **"Where we are right now"** |
+
+> Every AI agent must read these before implementation and **update them as work progresses**. No model can skip this step.
+
+### Pillar 3️⃣ — Steering & Skills
+
+```
+┌──────────────────┐     ┌──────────────────┐
+│   STEERING FILES  │     │     SKILLS        │
+│                   │     │                   │
+│ • Simplicity First│     │ • Engineer        │
+│ • Surgical Changes│     │ • Coding Standards│
+│ • No Assumptions  │     │ • Security Review │
+│ • Think Out Loud  │     │ • API Design      │
+│ • Git Workflow    │     │ • Docker Patterns │
+│ • Testing Rules   │     │ • Python Patterns │
+│                   │     │ • Frontend Patterns│
+│  = BEHAVIORAL     │     │  = EXECUTION      │
+│    GUARDRAILS     │     │    PATTERNS       │
+└──────────────────┘     └──────────────────┘
+         │                        │
+         └────────┬───────────────┘
+                  ▼
+      ┌─────────────────────┐
+      │  CONSISTENT BEHAVIOR │
+      │  ACROSS ALL MODELS   │
+      └─────────────────────┘
+```
+
+---
+
+## 🧩 Core Principles
+
+### 🔄 Model-Agnostic by Design
 
 AiStack does not rely on any model-specific features, prompt formats, or proprietary APIs. The entire framework is **plain Markdown files** — readable by any language model, any tool, any version.
 
+```
+    Claude ──┐
+    GPT ────┤
+    Gemini ──┤──▶ onboarding.md ──▶ Same Understanding ──▶ Same Behavior
+    Llama ───┤
+    Mistral ─┤
+    Future ──┘
+```
+
 **The guarantee:** After reading [`onboarding.md`](onboarding.md), any sufficiently capable AI model will:
-- Know the project scope, architecture, and current task
-- Follow the same behavioral constraints (simplicity, surgical changes, think-out-loud)
-- Maintain the same documentation integrity rules
-- Sync new knowledge to the same native config files
+- ✅ Know the project scope, architecture, and current task
+- ✅ Follow the same behavioral constraints (simplicity, surgical changes, think-out-loud)
+- ✅ Maintain the same documentation integrity rules
+- ✅ Sync new knowledge to the same native config files
 
-### Simplicity First (Karpathy Guidelines)
+### ✨ Simplicity First (Karpathy Guidelines)
 
-- Minimum code that solves the problem — nothing speculative
-- No abstractions for single-use code
-- If 200 lines could be 50, rewrite it
-- Surgical changes only — touch what you must, match existing style
+| Rule | Meaning |
+|:---|:---|
+| **Think & Surface** | Don't hide assumptions. If ambiguous, pause and clarify |
+| **Simplicity First** | Minimum code that solves the problem. Nothing speculative |
+| **Surgical Changes** | Touch only what you must. Match existing style perfectly |
+| **Goal-Driven** | Define success criteria. Loop until verified |
 
-### Transparent Execution
+> *"If you write 200 lines and it could be 50, rewrite it."*
+
+### 🔍 Transparent Execution
 
 Every AI agent must **think out loud** before acting:
-- State methodology and reasoning visibly
-- Surface assumptions and ambiguities instead of hiding them
-- Break large tasks into atomic, verifiable mini-tasks
-- Define success criteria before implementation
 
-### Single Source of Truth
+```
+┌──────────────────────────────────────────┐
+│         THINK OUT LOUD PROTOCOL           │
+│                                          │
+│  1. 📣 State methodology & reasoning     │
+│  2. 📣 Surface assumptions explicitly    │
+│  3. 📣 Break into atomic mini-tasks      │
+│  4. 📣 Define success criteria upfront   │
+│  5. 📣 Identify risks & edge cases       │
+│                                          │
+│  THEN ──▶ Write code                     │
+└──────────────────────────────────────────┘
+```
 
-All project knowledge lives in `.ai/`. Native config files (`CLAUDE.md`, `.cursorrules`, etc.) are **derived artifacts** — generated and synced from `.ai/`, never edited independently. This prevents drift and ensures consistency.
+### 📌 Single Source of Truth
+
+All project knowledge lives in `.ai/`. Native config files are **derived artifacts**:
+
+```
+  .ai/ (SOURCE)          Native Configs (DERIVED)
+  ┌──────────┐           ┌──────────────┐
+  │ specs/   │──────────▶│ CLAUDE.md    │
+  │ steering/│──────────▶│ .cursorrules │
+  │ skills/  │──────────▶│ copilot-*.md │
+  │ onboarding│──────────▶│ SESSION_LOG  │
+  └──────────┘           └──────────────┘
+       │                       │
+       │    Auto-synced        │
+       │◀──────────────────────│
+       │  (never edit directly)│
+```
+
+> Native configs are **generated and synced** from `.ai/`, never edited independently. This prevents drift and ensures consistency across all tools.
 
 ---
 
-## Directory Structure
+## 📁 Directory Structure
 
 ```
 .ai/
-├── README.md              ← You are here
-├── onboarding.md          ← Entry point for any AI agent
-├── specs/
-│   ├── requiremnts.md     ← Project scope & constraints
-│   ├── design.md          ← Architecture decisions
-│   └── tasks.md           ← Current progress & next action
-├── steering/
-│   ├── Engineer.md        ← Core behavioral directives
-│   ├── development-workflow.md
-│   ├── git-workflow.md
-│   ├── patterns.md
-│   └── ...                ← Domain-specific guardrails
-├── skills/
-│   ├── engineer/SKILL.md  ← Primary engineering skill
-│   ├── coding-standards/
-│   ├── security-review/
-│   └── ...                ← Domain-specific execution patterns
-├── hooks/
-│   └── Engineer.md        ← IDE-level directives
-└── docs/                  ← Supplementary documentation
+│
+├── 📄 README.md                 ← You are here (framework documentation)
+├── 📄 onboarding.md             ← Entry point for any AI agent
+│
+├── 📂 specs/                    ← Single Source of Truth
+│   ├── 📄 requiremnts.md        ← Project scope & constraints
+│   ├── 📄 design.md             ← Architecture decisions
+│   └── 📄 tasks.md              ← Current progress & next action
+│
+├── 📂 steering/                 ← Behavioral Guardrails
+│   ├── 📄 Engineer.md           ← Core behavioral directives
+│   ├── 📄 development-workflow.md
+│   ├── 📄 git-workflow.md
+│   ├── 📄 patterns.md
+│   ├── 📄 security.md
+│   ├── 📄 testing.md
+│   ├── 📄 performance.md
+│   ├── 📄 lessons-learned.md
+│   └── 📄 ...                   ← Domain-specific guardrails
+│
+├── 📂 skills/                   ← Execution Patterns
+│   ├── 📂 engineer/
+│   │   └── 📄 SKILL.md          ← Primary engineering skill
+│   ├── 📂 coding-standards/
+│   ├── 📂 security-review/
+│   ├── 📂 api-design/
+│   ├── 📂 backend-patterns/
+│   ├── 📂 frontend-patterns/
+│   ├── 📂 docker-patterns/
+│   ├── 📂 python-patterns/
+│   ├── 📂 golang-patterns/
+│   ├── 📂 e2e-testing/
+│   ├── 📂 cv-generator/
+│   ├── 📂 spice/
+│   ├── 📂 esp-idf/
+│   └── 📂 ...                   ← Domain-specific execution patterns
+│
+├── 📂 hooks/                    ← IDE-Level Directives
+│   └── 📄 Engineer.md           ← Master IDE directives
+│
+└── 📂 docs/                     ← Supplementary documentation
 ```
 
 ---
 
-## The Convergence Guarantee
+## 🔄 The Convergence Guarantee
 
-This is the core promise of AiStack:
+This is the **core promise** of AiStack:
 
-> **After reading the onboarding file, any AI model — Claude, GPT, Gemini, Llama, Mistral, or any future model — will converge to the same project understanding and follow the same behavioral rules.**
+<div align="center">
 
-The framework achieves this through:
-1. **Mandatory initialization sequence** — no model can skip steps
-2. **Plain Markdown format** — no proprietary syntax, universally parseable
-3. **Explicit behavioral constraints** — written as rules, not implied by training
-4. **State-driven execution** — tasks and specs drive behavior, not model preferences
+```
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   ANY MODEL ──▶ onboarding.md ──▶ SAME UNDERSTANDING        ║
+║                                                              ║
+║   Claude  ──▶ onboarding.md ──▶ ✅ Same project context     ║
+║   GPT     ──▶ onboarding.md ──▶ ✅ Same behavioral rules    ║
+║   Gemini  ──▶ onboarding.md ──▶ ✅ Same task awareness      ║
+║   Llama   ──▶ onboarding.md ──▶ ✅ Same execution pattern   ║
+║   Mistral ──▶ onboarding.md ──▶ ✅ Same documentation rules ║
+║   Future  ──▶ onboarding.md ──▶ ✅ Same convergence point   ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+```
 
-The onboarding file is the **contract** between you and every AI assistant you'll ever use. It's not prompt engineering — it's **protocol engineering**.
+</div>
+
+The framework achieves this through **four mechanisms**:
+
+| # | Mechanism | How It Works |
+|:---:|:---|:---|
+| 1 | **Mandatory initialization** | No model can skip the onboarding steps — they're enforced as a protocol |
+| 2 | **Plain Markdown format** | No proprietary syntax — universally parseable by any language model |
+| 3 | **Explicit behavioral constraints** | Written as rules, not implied by training data |
+| 4 | **State-driven execution** | Tasks and specs drive behavior, not model preferences or defaults |
+
+> The onboarding file is the **contract** between you and every AI assistant you'll ever use. It's not prompt engineering — it's **protocol engineering**.
 
 ---
 
-## Contributing
+## 🛠️ Extending AiStack
 
-To extend AiStack for your own workflows:
+To add new workflows or domain patterns:
 
-1. Add new skills in `.ai/skills/<name>/SKILL.md` with the standard frontmatter format
-2. Add new steering rules in `.ai/steering/<name>.md`
-3. Update [`onboarding.md`](onboarding.md) if the new skill/steering should be loaded during initialization
-4. The framework will auto-propagate changes to native configs on next session
+```bash
+# 1. Create a new skill
+.ai/skills/<name>/SKILL.md    # Use standard frontmatter format
+
+# 2. Create a new steering rule
+.ai/steering/<name>.md        # Add inclusion: always/auto header
+
+# 3. Update onboarding.md if the new skill/steering should load during init
+
+# 4. Framework auto-propagates changes to native configs on next session
+```
+
+<details>
+<summary>📝 SKILL.md Frontmatter Template</summary>
+
+```yaml
+---
+name: your-skill-name
+description: Brief description of what this skill provides
+---
+
+# Skill Title
+
+## 1. Initialization
+Steps to set up before execution...
+
+## 2. Execution Protocol
+How to carry out the skill...
+
+## 3. Verification
+How to confirm success...
+```
+
+</details>
+
+<details>
+<summary>📝 Steering.md Frontmatter Template</summary>
+
+```yaml
+---
+inclusion: always  # or: auto
+description: Brief description of this steering rule
+---
+
+# Rule Title
+
+Behavioral constraints and guidelines...
+```
+
+</details>
 
 ---
 
-## License
+## 📊 Comparison with Alternatives
 
-This framework is provided as-is for use in any project. No restrictions on adoption, modification, or distribution.
+| Feature | AiStack | `.cursorrules` only | `CLAUDE.md` only | `.github/copilot-instructions.md` only |
+|:---|:---:|:---:|:---:|:---:|
+| Model-agnostic | ✅ | ❌ Cursor only | ❌ Claude only | ❌ Copilot only |
+| Auto-sync to native configs | ✅ | ❌ | ❌ | ❌ |
+| Structured project state | ✅ Specs | ❌ | ❌ | ❌ |
+| Behavioral guardrails | ✅ Steering | ⚠️ Partial | ⚠️ Partial | ⚠️ Partial |
+| Domain-specific skills | ✅ 15+ | ❌ | ❌ | ❌ |
+| Think-out-loud enforcement | ✅ | ❌ | ❌ | ❌ |
+| Zero re-config on tool switch | ✅ | ❌ | ❌ | ❌ |
+
+---
+
+<div align="center">
+
+## 🤝 Contributing & License
+
+This framework is provided as-is for use in any project.  
+No restrictions on adoption, modification, or distribution.
+
+---
+
+**Built with the principle that the best AI workflow is one that doesn't depend on which AI you use.**
+
+[⬆ Back to Top](#-aistack--model-agnostic-ai-engineering-framework)
+
+</div>

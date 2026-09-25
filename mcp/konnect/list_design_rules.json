@@ -1,0 +1,1 @@
+{"name":"list_design_rules","description":"List all active design rules (user-level + project-level).","parameters":{"properties":{"project_dir":{"description":"Project directory (optional)","type":"string"}},"required":[],"type":"object"}}

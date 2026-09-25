@@ -1,0 +1,45 @@
+{
+  "plugins": {
+    "aistack": {
+      "enabled": true
+    },
+    "council": {
+      "enabled": true
+    },
+    "science": {
+      "enabled": false
+    }
+  },
+  "userSettings": {
+    "autoExecutionPolicy": "CASCADE_COMMANDS_AUTO_EXECUTION_EAGER",
+    "browserJsExecutionPolicy": "BROWSER_JS_EXECUTION_POLICY_TURBO",
+    "conversationWidth": "CONVERSATION_WIDTH_WIDE",
+    "customThemeSeedsLight": {
+      "background": "#FAF4E5",
+      "foregroundOverride": "#435155",
+      "primary": "#CB4B16"
+    },
+    "enableTerminalSandbox": false,
+    "globalPermissionGrants": {
+      "allow": [
+        "read_file(C:\\Users\\01226\\.gemini\\GEMINI.md)",
+        "command(Get-ChildItem)",
+        "command($paths)",
+        "command(Write-Output)",
+        "command($sh)",
+        "read_file(D:\\ERC 27\\Data\\ROAR-Autonomous-System-main)",
+        "command(Get-ChildItem -Path C-ECU/Src/APP/LCD_Manager)",
+        "command(git diff --name-only a06940d origin/develop -- C-ECU/Src/)",
+        "command(Get-ChildItem -Path C-ECU/)",
+        "command(Get-ChildItem -Recurse E:\\Gestell\\SW\\T-ECU\\Tests -Depth 3 | Where-Object { $_.FullName -notmatch \"vendor\" } | Select-Object FullName)",
+        "command(Get-ChildItem -Recurse E:\\Gestell\\SW\\C-ECU\\Tests -Depth 3 | Where-Object { $_.FullName -notmatch \"vendor\" -and -not $_.PSIsContainer } | Select-Object FullName)",
+        "command(git status)",
+        "command(git diff --shortstat origin/main...origin/rasmasoof)"
+      ]
+    },
+    "nonWorkspaceFileAccessPolicy": "AGENT_SETTING_POLICY_ALLOW",
+    "remoteControlEnabled": true,
+    "remoteControlHostname": "saif-ultima-dust",
+    "themeMode": "THEME_MODE_LIGHT"
+  }
+}

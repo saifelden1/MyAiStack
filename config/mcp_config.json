@@ -1,0 +1,33 @@
+{
+  "mcpServers": {
+    "google-calendar": {
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-google-calendar"
+      ],
+      "command": "npx",
+      "disabled": true,
+      "env": {
+        "CLIENT_ID": "YOUR_GOOGLE_CLIENT_ID",
+        "CLIENT_SECRET": "YOUR_GOOGLE_CLIENT_SECRET"
+      }
+    },
+    "konnect": {
+      "command": "E:/SHAKR/Konnect/bin/konnect.exe"
+    },
+    "linkedin": {
+      "args": [
+        "-y",
+        "@pegasusheavy/linkedin-mcp"
+      ],
+      "command": "npx",
+      "disabled": true,
+      "env": {
+        "LINKEDIN_ACCESS_TOKEN": "YOUR_LINKEDIN_ACCESS_TOKEN",
+        "LINKEDIN_CLIENT_ID": "YOUR_LINKEDIN_CLIENT_ID",
+        "LINKEDIN_CLIENT_SECRET": "YOUR_LINKEDIN_CLIENT_SECRET",
+        "LINKEDIN_PERSON_URN": "YOUR_LINKEDIN_PERSON_URN"
+      }
+    }
+  }
+}

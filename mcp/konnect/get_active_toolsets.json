@@ -1,0 +1,1 @@
+{"name":"get_active_toolsets","description":"Return the list of currently loaded toolsets and how many tools each provides.","parameters":{"properties":{},"required":[],"type":"object"}}

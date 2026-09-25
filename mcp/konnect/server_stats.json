@@ -1,0 +1,1 @@
+{"name":"server_stats","description":"Return server uptime, total/error call counts, per-tool statistics, and the path to the JSONL call log. Good for 'what's my error rate today?' and 'which tool has been slowest?'.","parameters":{"properties":{},"required":[],"type":"object"}}

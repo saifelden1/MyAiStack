@@ -1,0 +1,1 @@
+{"name":"unload_toolset","description":"Unload a toolset to remove its tools from the active session. Use this to keep the tool list manageable when switching tasks. With auto_load_toolsets enabled, tools reload on use.","parameters":{"properties":{"name":{"description":"Toolset name to unload","type":"string"}},"required":["name"],"type":"object"}}

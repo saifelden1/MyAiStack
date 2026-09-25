@@ -1,0 +1,1 @@
+{"name":"open_project","description":"List PCB documents open in the running KiCad UI and optionally check whether one specific KiCad project or board is open over IPC.","parameters":{"properties":{"path":{"description":"Optional path to a .kicad_pro project or .kicad_pcb board to check","type":"string"}},"required":[],"type":"object"}}

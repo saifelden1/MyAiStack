@@ -1,0 +1,1 @@
+{"name":"save_project","description":"Save the currently open PCB board file via KiCAD IPC. Requires KiCAD to be running with IPC enabled.","parameters":{"properties":{},"required":[],"type":"object"}}

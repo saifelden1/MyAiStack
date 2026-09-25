@@ -1,0 +1,28 @@
+# Credentials & Tokens (Strictly Ignore)
+*oauth*
+*token*
+*creds*
+*.env
+*.env.*
+*.key
+*.pem
+google_accounts.json
+installation_id
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+.vscode/
+.idea/
+
+# Antigravity Local Logs & Cache
+*.log
+chats/
+logs/
+brain/
+crashes/
+daemon/
+implicit/
+*.db

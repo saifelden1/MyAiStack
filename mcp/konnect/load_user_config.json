@@ -1,0 +1,1 @@
+{"name":"load_user_config","description":"Load the user's global Konnect preferences. Call this at the start of every session to get preferred manufacturers, fab constraints, default passives, and design rules.","parameters":{"properties":{},"required":[],"type":"object"}}

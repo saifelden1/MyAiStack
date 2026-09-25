@@ -1,0 +1,1 @@
+{"name":"get_effective_config","description":"Return the merged configuration (user defaults + project overrides). This is the config Claude should use for all design decisions.","parameters":{"properties":{"project_dir":{"description":"Project directory (optional)","type":"string"}},"required":[],"type":"object"}}

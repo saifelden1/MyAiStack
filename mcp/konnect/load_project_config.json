@@ -1,0 +1,1 @@
+{"name":"load_project_config","description":"Load project-specific configuration from \u003cproject_dir\u003e/.konnect/project.json. Project config overrides user config where both exist.","parameters":{"properties":{"project_dir":{"description":"Path to the KiCAD project directory. If omitted, uses the configured project_dir.","type":"string"}},"required":[],"type":"object"}}

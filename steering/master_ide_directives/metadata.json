@@ -1,0 +1,10 @@
+{
+  "summary": "MANDATORY GLOBAL PROMPT: Master IDE Directives. Read artifacts/Engineer.md before doing anything. Treat as core instruction ledger.",
+  "timestamps": {
+    "created": "2026-05-10T15:17:48.934145Z",
+    "updated": "2026-05-10T15:17:48.934235Z"
+  },
+  "references": [
+    "file:///c:/Users/01226/Desktop/AiStack/.ai/hooks/Engineer.md"
+  ]
+}
